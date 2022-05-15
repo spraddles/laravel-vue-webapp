@@ -3,15 +3,13 @@
     <div class="bg-gray-50 login-page">
       <img alt="Vue logo" src="../assets/logo.png" class="pt-10 mx-auto w-24 h-full" />
       <form class="p-10">
-        <BaseBaseInput
-          v-model="username"
+        <BaseInput
           name="username"
           type="email"
           label="Username"
           placeholder="Enter username"
         />
         <BaseInput
-          v-model="password"
           name="password"
           type="password"
           label="Password"

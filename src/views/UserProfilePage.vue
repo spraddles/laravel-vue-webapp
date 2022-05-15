@@ -13,7 +13,12 @@
           type="text"
           label="Last name"
         />
+        <BaseSelect
+          :options="options"
+          label="Language"
+        />
         <BaseInput
+          v-model="language"
           name="username"
           type="email"
           label="Username"
@@ -23,9 +28,7 @@
           type="password"
           label="Password"
         />
-        <BaseButton 
-          class="xl:w-96"
-        >Save</BaseButton>
+        <BaseButton class="xl:w-96">Save</BaseButton>
       </form>
     </div>
   </BaseLayout>
@@ -35,6 +38,7 @@
 import BaseLayout from '@/layouts/BaseLayout.vue';
 import BaseInput from '@/components/BaseInput.vue';
 import BaseButton from '@/components/BaseButton.vue';
+import BaseSelect from '@/components/BaseSelect.vue';
 
 export default {
   name: 'UserProfilePage',
@@ -42,6 +46,13 @@ export default {
     BaseLayout,
     BaseInput,
     BaseButton,
+    BaseSelect
   },
+  data() {
+    return {
+      langauge: '',
+      options: ['English', 'German', 'Spanish', 'Russian']
+    }
+  }
 };
 </script>
