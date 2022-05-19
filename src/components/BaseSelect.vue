@@ -1,6 +1,12 @@
 <script setup>
 import { defineProps } from 'vue';
 
+const removeDuplicateSelect = (() => {
+  let array = props.options;
+  let newArray = array.filter(e => e !== props.modelValue);
+  return newArray
+});
+
 const props = defineProps({
   modelValue: {
     type: String,
@@ -12,7 +18,7 @@ const props = defineProps({
   },
   options: {
     type: Array,
-    default: () => [],
+    default: () => this.deDupedArray
   },
   placeholder: {
     type: String,
@@ -24,7 +30,7 @@ const props = defineProps({
 <template>
   <div>
     <label v-if="props.label" class="inline-block mb-3 text-gray-700">{{props.label}}</label>
-    <select 
+    <select
       class="block py-1.5 px-3 mb-8
       text-gray-700
       bg-drop-down-arrow-position bg-no-repeat bg-drop-down-arrow-size bg-drop-down-arrow-image
@@ -33,9 +39,9 @@ const props = defineProps({
       focus:outline-none
       ease-in-out appearance-none xl:w-96"
       :name="props.label">
-      <option 
+      <option
         v-if="modelValue == ''" 
-        :value="props.placeholder"
+        value=""
         selected
         disabled
       >{{props.placeholder}}</option>
@@ -45,10 +51,9 @@ const props = defineProps({
         selected
         disabled
       >{{props.modelValue}}</option>
-      <option 
-        v-for="(option, index) in options"
+      <option
+        v-for="(option, index) in removeDuplicateSelect()"
         :key="index"
-        :value="option"
         @input="$emit('update:modelValue', $event.target.value)"
       >{{option}}</option>
     </select>

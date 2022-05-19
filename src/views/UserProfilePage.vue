@@ -17,7 +17,7 @@ onMounted(() => {
 const getExistingLanguage = (() => {
   // some API request that fetches existing language
   // returns a string (if set) else returns empty string (if none set)
-  var a = 'Spanish';
+  var a = 'German';
   language.value = a;
 });
 
