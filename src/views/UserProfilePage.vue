@@ -7,11 +7,13 @@ import { onMounted, ref } from 'vue';
 
 const language = ref('');
 const languageOptions = ref([]);
+const modelValue = ref('');
 
 onMounted(() => {
   getExistingLanguage();
   setLanguage();
   getLanguageOptions();
+  // console.log(language.value);
 });
 
 const getExistingLanguage = (() => {
@@ -23,9 +25,8 @@ const getExistingLanguage = (() => {
 
 const setLanguage = (() => {
   if(language.value === '') {
-    return 'Please select a language';
+    language.value = 'Please select a language';
   }
-  return language.value;
 });
 
 const getLanguageOptions = (() => {
@@ -33,19 +34,26 @@ const getLanguageOptions = (() => {
   var b = ['English', 'German', 'Spanish', 'Russian', 'Portuguese', 'French'];
   languageOptions.value = b;
 });
+
+const updateModelValue = (() => {
+  modelValue.value = modelValue;
+});
+
 </script>
 
 <template>
   <BaseLayout>
     <div class="user-profile-page">
-      <h1 class="mb-10">Welome to your profile page</h1>
+      <h1 class="mb-10">Welcome to your profile page</h1>
       <form>
         <BaseInput name="firstName" type="text" label="First name" />
         <BaseInput name="lastName" type="text" label="Last name" />
         <BaseSelect
-          v-model="language"
+          :model-value="'spanish'"
           :options="languageOptions"
-          label="Language"
+          :placeholder="'something'"
+          :label="'Language'"
+          @update:modelValue="updateModelValue"
         />
         <BaseInput name="username" type="email" label="Username" />
         <BaseInput name="password" type="password" label="Password" />
