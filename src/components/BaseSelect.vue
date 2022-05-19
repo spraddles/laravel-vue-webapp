@@ -44,8 +44,13 @@ const props = defineProps({
         :value="props.modelValue"
         selected
         disabled
-        @input="$emit('update:modelValue', $event.target.value)"
       >{{props.modelValue}}</option>
+      <option 
+        v-for="(option, index) in options"
+        :key="index"
+        :value="option"
+        @input="$emit('update:modelValue', $event.target.value)"
+      >{{option}}</option>
     </select>
   </div>
 </template>
