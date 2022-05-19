@@ -34,12 +34,18 @@ const props = defineProps({
       ease-in-out appearance-none xl:w-96"
       :name="props.label">
       <option 
-        v-if="props.placeholder" 
+        v-if="modelValue == ''" 
         :value="props.placeholder"
-        selected 
+        selected
+        disabled
+      >{{props.placeholder}}</option>
+      <option 
+        v-else
+        :value="props.modelValue"
+        selected
         disabled
         @input="$emit('update:modelValue', $event.target.value)"
-      >{{props.placeholder}}</option>
+      >{{props.modelValue}}</option>
     </select>
   </div>
 </template>

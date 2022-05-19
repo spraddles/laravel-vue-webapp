@@ -7,11 +7,9 @@ import { onMounted, ref } from 'vue';
 
 const language = ref('');
 const languageOptions = ref([]);
-const modelValue = ref('');
 
 onMounted(() => {
   getExistingLanguage();
-  setLanguage();
   getLanguageOptions();
   // console.log(language.value);
 });
@@ -23,20 +21,10 @@ const getExistingLanguage = (() => {
   language.value = a;
 });
 
-const setLanguage = (() => {
-  if(language.value === '') {
-    language.value = 'Please select a language';
-  }
-});
-
 const getLanguageOptions = (() => {
   // some API that fetches language options
   var b = ['English', 'German', 'Spanish', 'Russian', 'Portuguese', 'French'];
   languageOptions.value = b;
-});
-
-const updateModelValue = (() => {
-  modelValue.value = modelValue;
 });
 
 </script>
@@ -49,11 +37,11 @@ const updateModelValue = (() => {
         <BaseInput name="firstName" type="text" label="First name" />
         <BaseInput name="lastName" type="text" label="Last name" />
         <BaseSelect
-          :model-value="'spanish'"
+          :model-value="language"
           :options="languageOptions"
-          :placeholder="'something'"
+          :placeholder="'Please select a language'"
           :label="'Language'"
-          @update:modelValue="updateModelValue"
+          @update:modelValue="language"
         />
         <BaseInput name="username" type="email" label="Username" />
         <BaseInput name="password" type="password" label="Password" />
