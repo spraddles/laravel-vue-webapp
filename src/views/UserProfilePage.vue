@@ -26,7 +26,6 @@ const getLanguageOptions = (() => {
   var b = ['English', 'German', 'Spanish', 'Russian', 'Portuguese', 'French'];
   languageOptions.value = b;
 });
-
 </script>
 
 <template>

@@ -1,11 +1,5 @@
 <script setup>
-import { defineProps } from 'vue';
-
-const removeDuplicateSelect = (() => {
-  let array = props.options;
-  let newArray = array.filter(e => e !== props.modelValue);
-  return newArray
-});
+import { defineProps, defineEmits } from 'vue';
 
 const props = defineProps({
   modelValue: {
@@ -18,13 +12,16 @@ const props = defineProps({
   },
   options: {
     type: Array,
-    default: () => this.deDupedArray
+    default: () => []
   },
   placeholder: {
     type: String,
     default: '',
   }
 });
+
+defineEmits(['update:modelValue']);
+
 </script>
 
 <template>
@@ -32,12 +29,11 @@ const props = defineProps({
     <label v-if="props.label" class="inline-block mb-3 text-gray-700">{{props.label}}</label>
     <select
       class="block py-1.5 px-3 mb-8
-      text-gray-700
-      bg-drop-down-arrow-position bg-no-repeat bg-drop-down-arrow-size bg-drop-down-arrow-image
-      rounded border border-gray-300
-      focus:border-blue-600
-      focus:outline-none
+      text-gray-700 bg-drop-down-arrow-position
+      bg-no-repeat bg-drop-down-arrow-size bg-drop-down-arrow-image 
+      rounded border border-gray-300 focus:border-blue-600 focus:outline-none
       ease-in-out appearance-none xl:w-96"
+      @change="$emit('update:modelValue', $event.target.value)"
       :name="props.label">
       <option
         v-if="modelValue == ''" 
@@ -45,16 +41,9 @@ const props = defineProps({
         selected
         disabled
       >{{props.placeholder}}</option>
-      <option 
-        v-else
-        :value="props.modelValue"
-        selected
-        disabled
-      >{{props.modelValue}}</option>
       <option
-        v-for="(option, index) in removeDuplicateSelect()"
+        v-for="(option, index) in options"
         :key="index"
-        @input="$emit('update:modelValue', $event.target.value)"
       >{{option}}</option>
     </select>
   </div>
