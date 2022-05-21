@@ -26,6 +26,10 @@ const getLanguageOptions = (() => {
   var b = ['English', 'German', 'Spanish', 'Russian', 'Portuguese', 'French'];
   languageOptions.value = b;
 });
+
+const updateLanguageFromChild = ((value) => {
+  language.value = value
+});
 </script>
 
 <template>
@@ -40,7 +44,7 @@ const getLanguageOptions = (() => {
           :options="languageOptions"
           :placeholder="'Please select a language'"
           :label="'Language'"
-          @update:modelValue="language"
+          @update:modelValue="updateLanguageFromChild($event)"
         />
         <BaseInput name="username" type="email" label="Username" />
         <BaseInput name="password" type="password" label="Password" />
