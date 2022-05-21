@@ -5,31 +5,43 @@ import BaseButton from '@/components/BaseButton.vue';
 import BaseSelect from '@/components/BaseSelect.vue';
 import { onMounted, ref } from 'vue';
 
+const firstName = ref('');
+const lastName = ref('');
 const language = ref('');
 const languageOptions = ref([]);
 
 onMounted(() => {
+  getExistingFirstName();
+  getExistingLastName();
   getExistingLanguage();
   getLanguageOptions();
-  // console.log(language.value);
 });
 
+// FIRST NAME
+const getExistingFirstName = (() => {
+  var a = 'John';
+  firstName.value = a;
+});
+
+// LAST NAME
+const getExistingLastName = (() => {
+  var a = 'Smith';
+  lastName.value = a;
+});
+
+// LANGUAGE
 const getExistingLanguage = (() => {
-  // some API request that fetches existing language
-  // returns a string (if set) else returns empty string (if none set)
   var a = 'German';
   language.value = a;
 });
-
 const getLanguageOptions = (() => {
-  // some API that fetches language options
   var b = ['English', 'German', 'Spanish', 'Russian', 'Portuguese', 'French'];
   languageOptions.value = b;
 });
-
 const updateLanguageFromChild = ((value) => {
   language.value = value
 });
+
 </script>
 
 <template>
@@ -37,8 +49,16 @@ const updateLanguageFromChild = ((value) => {
     <div class="user-profile-page">
       <h1 class="mb-10">This is your profile page</h1>
       <form>
-        <BaseInput name="firstName" type="text" label="First name" />
-        <BaseInput name="lastName" type="text" label="Last name" />
+        <BaseInput 
+          name="firstName"
+            type="text"
+            :label="'First name'"
+          />
+        <BaseInput 
+          name="lastName"
+            type="text"
+            :label="'Last name'"
+          />
         <BaseSelect
           :model-value="language"
           :options="languageOptions"
