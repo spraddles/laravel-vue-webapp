@@ -22,6 +22,13 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "user_profile" */ '../views/UserProfilePage.vue'),
   },
+  {
+    path: '/account',
+    name: 'account',
+    // lazy-load component
+    component: () =>
+      import(/* webpackChunkName: "user_account" */ '../views/UserAccountPage.vue'),
+  },
 ];
 
 const router = createRouter({
