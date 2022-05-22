@@ -1,3 +1,7 @@
+<script setup>
+
+</script>
+
 <template>
   <div class="grid place-items-center h-screen">
     <div class="max-w-md">
@@ -6,8 +10,3 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'CenterLayout',
-};
-</script>

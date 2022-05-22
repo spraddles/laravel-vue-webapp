@@ -1,3 +1,7 @@
+<script setup>
+
+</script>
+
 <template>
 <div class="overflow-x-hidden relative -mx-4 -mt-4 -mb-8 h-96 min-h-full">
     <div class="absolute px-1 w-60 h-full shadow-md">
@@ -38,9 +42,3 @@
     </div>
   </div>
 </template>
-
-<script>
-export default {
-  name: 'SideMenu',
-};
-</script>

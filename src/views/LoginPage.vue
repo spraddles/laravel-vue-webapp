@@ -1,3 +1,9 @@
+<script setup>
+import CenterLayout from '@/layouts/CenterLayout.vue';
+import BaseInput from '@/components/BaseInput.vue';
+import BaseButton from '@/components/BaseButton.vue';
+</script>
+
 <template>
   <CenterLayout>
     <div class="bg-gray-50 login-page">
@@ -20,18 +26,3 @@
     </div>
   </CenterLayout>
 </template>
-
-<script>
-import CenterLayout from '@/layouts/CenterLayout.vue';
-import BaseInput from '@/components/BaseInput.vue';
-import BaseButton from '@/components/BaseButton.vue';
-
-export default {
-  name: 'LoginPage',
-  components: {
-    CenterLayout,
-    BaseInput,
-    BaseButton,
-  },
-};
-</script>

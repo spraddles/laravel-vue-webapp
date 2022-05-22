@@ -1,3 +1,7 @@
+<script setup>
+import SideMenu from '@/components/SideMenu.vue';
+</script>
+
 <template>
   <div class="container">
     <div class="flex my-12 mx-auto lg:w-11/12">
@@ -10,16 +14,3 @@
     </div>
   </div>
 </template>
-
-<script>
-import SideMenu from '@/components/SideMenu.vue';
-
-export default {
-  name: 'BaseLayout',
-  components: {
-    SideMenu
-  },
-};
-</script>
-
-

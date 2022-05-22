@@ -1,3 +1,7 @@
+<script setup>
+import BaseLayout from '@/layouts/BaseLayout.vue';
+</script>
+
 <template>
   <BaseLayout>
     <div class="home-page">
@@ -5,14 +9,3 @@
     </div>
   </BaseLayout>
 </template>
-
-<script>
-import BaseLayout from '@/layouts/BaseLayout.vue';
-
-export default {
-  name: 'HomePage',
-  components: {
-    BaseLayout
-  },
-};
-</script>

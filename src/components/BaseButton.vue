@@ -1,3 +1,6 @@
+<script setup>
+</script>
+
 <template>
   <div class="flex justify-center mt-4 space-x-2">
     <button
@@ -8,13 +11,6 @@
     </button>
   </div>
 </template>
-
-<script>
-export default {
-  name: 'BaseButton',
-  props: {},
-};
-</script>
 
 <style type="text/css">
 button {
