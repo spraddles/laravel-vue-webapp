@@ -3,18 +3,23 @@ import BaseLayout from '@/layouts/BaseLayout.vue';
 import BaseInput from '@/components/BaseInput.vue';
 import BaseButton from '@/components/BaseButton.vue';
 import BaseSelect from '@/components/BaseSelect.vue';
+import BaseRadio from '@/components/BaseRadio.vue';
 import { onMounted, ref } from 'vue';
 
 const firstName = ref('');
 const lastName = ref('');
 const language = ref('');
 const languageOptions = ref([]);
+const gender = ref('');
+const genderOptions = ref([]);
 
 onMounted(() => {
   getExistingFirstName();
   getExistingLastName();
   getExistingLanguage();
   getLanguageOptions();
+  getExistingGender();
+  getGenderOptions();
 });
 
 // FIRST NAME
@@ -35,13 +40,25 @@ const getExistingLanguage = (() => {
   language.value = a;
 });
 const getLanguageOptions = (() => {
-  var b = ['English', 'German', 'Spanish', 'Russian', 'Portuguese', 'French'];
-  languageOptions.value = b;
+  var a = ['English', 'German', 'Spanish', 'Russian', 'Portuguese', 'French'];
+  languageOptions.value = a;
 });
-const updateLanguageFromChild = ((value) => {
+const updateLanguageFromChildComponent = ((value) => {
   language.value = value
 });
 
+// GENDER
+const getExistingGender = (() => {
+  var a = 'Male';
+  gender.value = a;
+});
+const getGenderOptions = (() => {
+  var a = ['Male', 'Female', 'Other'];
+  genderOptions.value = a;
+});
+const updateGenderFromChildComponent = ((value) => {
+  gender.value = value
+});
 </script>
 
 <template>
@@ -64,7 +81,14 @@ const updateLanguageFromChild = ((value) => {
           :options="languageOptions"
           :placeholder="'Please select a language'"
           :label="'Language'"
-          @update:modelValue="updateLanguageFromChild($event)"
+          @update:modelValue="updateLanguageFromChildComponent($event)"
+        />
+        <BaseRadio
+          :model-value="gender"
+          :options="genderOptions"
+          :heading="'Gender'"
+          :name="'gender'"
+          @update:modelValue="updateGenderFromChildComponent($event)"
         />
         <BaseButton class="xl:w-96">Save</BaseButton>
       </form>
