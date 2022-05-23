@@ -2,6 +2,10 @@
 import { defineProps } from 'vue';
 
 const props = defineProps({
+  modelValue: {
+    type: String,
+    default: '',
+  },
   label: {
     type: String,
     default: '',
@@ -36,8 +40,8 @@ const props = defineProps({
         :placeholder="props.placeholder"
         :name="name"
         :type="type"
-        :aria-label="name"
-      />
+        :value="props.modelValue"
+        :aria-label="name">
     </div>
   </div>
 </div>

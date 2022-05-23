@@ -45,6 +45,7 @@ defineEmits(['update:modelValue']);
         v-for="(option, index) in options"
         :key="index"
         :value="option"
+        :selected="option === props.modelValue"
       >{{option}}</option>
     </select>
   </div>
