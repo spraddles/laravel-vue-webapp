@@ -35,14 +35,12 @@ defineEmits(['update:modelValue']);
       ease-in-out appearance-none xl:w-96"
       @change="$emit('update:modelValue', $event.target.value)"
       :name="props.label">
-      <option
-        v-if="modelValue == ''"
+      <option v-if="modelValue == ''"
         value=""
         selected
         disabled
       >{{props.placeholder}}</option>
-      <option
-        v-for="(option, index) in options"
+      <option v-for="(option, index) in options"
         :key="index"
         :value="option"
         :selected="option === props.modelValue"

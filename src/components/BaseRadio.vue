@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps } from 'vue';
+import { defineProps, defineEmits } from 'vue';
 
 const props = defineProps({
   modelValue: {
@@ -19,18 +19,22 @@ const props = defineProps({
     default: () => []
   },
 });
+
+defineEmits(['update:modelValue']);
+
 </script>
 
 <template>
   <div class="mb-8">
     <p v-if="props.heading" class="mb-3 text-gray-700">{{props.heading}}</p>
     <div v-for="(option, index) in options" :key="index" class="mb-3">
-      <input 
+      <input
         class="mr-3 w-5 h-5"
         type="radio"
         :name="props.name"
         :value="option"
         :id="option"
+        :checked="option === props.modelValue"
         @change="$emit('update:modelValue', $event.target.value)"
       />
       <label class="relative bottom-1 text-gray-700" :for="option">{{option}}</label>
