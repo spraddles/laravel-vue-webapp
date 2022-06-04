@@ -4,7 +4,7 @@ import BaseInput from '@/components/BaseInput.vue';
 import BaseButton from '@/components/BaseButton.vue';
 import BaseSelect from '@/components/BaseSelect.vue';
 import BaseRadio from '@/components/BaseRadio.vue';
-import BaseCheckbox from '@/components/BaseCheckBox.vue';
+import BaseCheckboxMulti from '@/components/BaseCheckboxMulti.vue';
 import { onMounted, ref } from 'vue';
 
 const firstName = ref('');
@@ -98,7 +98,7 @@ const updateGenderFromChildComponent = ((value) => {
           :label="'Last name'"
           :placeholder="'Type your last name'"
         />
-        <BaseCheckbox
+        <BaseCheckboxMulti
           :model-value="favouriteFood"
           :options="favouriteFoodOptions"
           :heading="'Favourite food'"
