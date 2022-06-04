@@ -98,10 +98,10 @@ const updateGenderFromChildComponent = ((value) => {
           :label="'Last name'"
           :placeholder="'Type your last name'"
         />
-        <BaseCheckbox 
+        <BaseCheckbox
           :model-value="favouriteFood"
           :options="favouriteFoodOptions"
-          :heading="'Favourite Food'"
+          :heading="'Favourite food'"
           :name="'favourite_food'"
           @update:modelValue="updateFavouriteFoodFromChildComponent($event)"
         />
