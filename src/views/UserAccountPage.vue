@@ -2,7 +2,7 @@
 import { ref, onMounted } from 'vue';
 import BaseLayout from '@/layouts/BaseLayout.vue';
 import BaseInput from '@/components/BaseInput.vue';
-import BaseCheckBoxSingle from '@/components/BaseCheckBoxSingle.vue';
+import BaseCheckboxSingle from '@/components/BaseCheckboxSingle.vue';
 import BaseButton from '@/components/BaseButton.vue';
 
 onMounted(() => {
@@ -28,7 +28,7 @@ const updateIsAdminFromChildComponent = ((value) => {
       <form>
         <BaseInput name="username" type="email" label="Username" />
         <BaseInput name="password" type="password" label="Password" />
-        <BaseCheckBoxSingle
+        <BaseCheckboxSingle
           :model-value="isAdmin"
           :heading="'Remember this setting'"
           :name="'remember_setting'"
