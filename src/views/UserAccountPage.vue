@@ -1,7 +1,24 @@
 <script setup>
+import { ref, onMounted } from 'vue';
 import BaseLayout from '@/layouts/BaseLayout.vue';
 import BaseInput from '@/components/BaseInput.vue';
+import BaseCheckBoxSingle from '@/components/BaseCheckBoxSingle.vue';
 import BaseButton from '@/components/BaseButton.vue';
+
+onMounted(() => {
+  getExistingIsAdmin();
+});
+
+const isAdmin = ref(false);
+
+const getExistingIsAdmin = (() => {
+  var a = true;
+  isAdmin.value = a;
+});
+const updateIsAdminFromChildComponent = ((value) => {
+  isAdmin.value = value
+});
+
 </script>
 
 <template>
@@ -11,6 +28,12 @@ import BaseButton from '@/components/BaseButton.vue';
       <form>
         <BaseInput name="username" type="email" label="Username" />
         <BaseInput name="password" type="password" label="Password" />
+        <BaseCheckBoxSingle
+          :model-value="isAdmin"
+          :heading="'Remember this setting'"
+          :name="'remember_setting'"
+          @update:modelValue="updateIsAdminFromChildComponent($event)"
+        />
         <BaseButton class="xl:w-96">Save</BaseButton>
       </form>
     </div>
