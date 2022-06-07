@@ -1,14 +1,16 @@
 <script setup>
+import { onMounted, ref } from 'vue';
 import BaseLayout from '@/layouts/BaseLayout.vue';
 import BaseInput from '@/components/BaseInput.vue';
 import BaseButton from '@/components/BaseButton.vue';
 import BaseSelect from '@/components/BaseSelect.vue';
 import BaseRadio from '@/components/BaseRadio.vue';
 import BaseCheckboxMulti from '@/components/BaseCheckboxMulti.vue';
-import { onMounted, ref } from 'vue';
+import BaseDatePicker from '@/components/BaseDatePicker.vue';
 
 const firstName = ref('');
 const lastName = ref('');
+const dateOfBirth = ref('');
 const favouriteFood = ref([]);
 const favouriteFoodOptions = ref([]);
 const language = ref('');
@@ -19,6 +21,7 @@ const genderOptions = ref([]);
 onMounted(() => {
   getExistingFirstName();
   getExistingLastName();
+  getExistingDateOfBirth();
   getExistingFavouriteFood();
   getFavouriteFoodOptions();
   getExistingLanguage();
@@ -37,6 +40,15 @@ const getExistingFirstName = (() => {
 const getExistingLastName = (() => {
   var a = 'Smith';
   lastName.value = a;
+});
+
+// DATE OF BIRTH
+const getExistingDateOfBirth = (() => {
+  var a = '01/01/1993';
+  dateOfBirth.value = a;
+});
+const updateDateOfBirthFromChildComponent = ((value) => {
+  dateOfBirth.value = value
 });
 
 // FAVOURITE FOOD
@@ -86,17 +98,24 @@ const updateGenderFromChildComponent = ((value) => {
       <form>
         <BaseInput 
           :model-value="firstName"
-          :name="'firstName'"
+          :name="'first_name'"
           type="text"
           :label="'First name'"
           :placeholder="'Type your first name'"
+          @update:modelValue="firstName=$event"
         />
         <BaseInput 
           :model-value="lastName"
-          :name="'lastName'"
+          :name="'last_name'"
           type="text"
           :label="'Last name'"
           :placeholder="'Type your last name'"
+        />
+        <BaseDatePicker
+          :model-value="dateOfBirth"
+          :name="'date_of_birth'"
+          :label="'Date of birth'"
+          @update:modelValue="updateDateOfBirthFromChildComponent($event)"
         />
         <BaseCheckboxMulti
           :model-value="favouriteFood"

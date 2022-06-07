@@ -24,6 +24,10 @@ const props = defineProps({
   },
 });
 
+const changeAttribute = (() => {
+  document.getElementById('date_of_birth').setAttribute('type', 'date');
+});
+
 </script>
 
 <template>
@@ -37,14 +41,24 @@ const props = defineProps({
         bg-clip-padding bg-white 
         focus:bg-white rounded border border-gray-300 focus:border-blue-600 border-solid focus:outline-none
         transition ease-in-out"
-        :placeholder="props.placeholder"
-        :name="name"
-        :type="type"
+        :type="props.modelValue ? 'text' : 'date'"
+        :id="props.name"
+        :name="props.name"
+        :placeholder="props.modelValue"
         :value="props.modelValue"
         :aria-label="name"
-        @input="$emit('update:modelValue', $event.target.value)"
+        @focus="props.modelValue ? changeAttribute() : false"
+        @change="$emit('update:modelValue', $event.target.value)"
       />
     </div>
   </div>
 </div>
 </template>
+
+<style scoped>
+input[type="date"]::-webkit-calendar-picker-indicator {
+  height: 22px;
+  width: 22px;
+  padding-left: 150px;
+}
+</style>
