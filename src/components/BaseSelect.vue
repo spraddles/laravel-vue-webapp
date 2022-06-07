@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps, defineEmits } from 'vue';
+import { defineProps } from 'vue';
 
 const props = defineProps({
   modelValue: {
@@ -19,8 +19,6 @@ const props = defineProps({
     default: '',
   }
 });
-
-defineEmits(['update:modelValue']);
 
 </script>
 

@@ -47,9 +47,6 @@ const getExistingDateOfBirth = (() => {
   var a = '01/01/1993';
   dateOfBirth.value = a;
 });
-const updateDateOfBirthFromChildComponent = ((value) => {
-  dateOfBirth.value = value
-});
 
 // FAVOURITE FOOD
 const getExistingFavouriteFood = (() => {
@@ -60,10 +57,6 @@ const getFavouriteFoodOptions = (() => {
   var a = ['Thai', 'Italian', 'Mexican', 'Greek', 'Seafood', 'Steak'];
   favouriteFoodOptions.value = a;
 });
-const updateFavouriteFoodFromChildComponent = ((value) => {
-  favouriteFood.value = value
-});
-
 // LANGUAGE
 const getExistingLanguage = (() => {
   var a = 'German';
@@ -72,9 +65,6 @@ const getExistingLanguage = (() => {
 const getLanguageOptions = (() => {
   var a = ['English', 'German', 'Spanish', 'Russian', 'Portuguese', 'French'];
   languageOptions.value = a;
-});
-const updateLanguageFromChildComponent = ((value) => {
-  language.value = value
 });
 
 // GENDER
@@ -86,9 +76,7 @@ const getGenderOptions = (() => {
   var a = ['Male', 'Female', 'Other'];
   genderOptions.value = a;
 });
-const updateGenderFromChildComponent = ((value) => {
-  gender.value = value
-});
+
 </script>
 
 <template>
@@ -97,46 +85,41 @@ const updateGenderFromChildComponent = ((value) => {
       <h1 class="mb-10">This is your profile page</h1>
       <form>
         <BaseInput 
-          :model-value="firstName"
+          v-model="firstName"
           :name="'first_name'"
           type="text"
           :label="'First name'"
           :placeholder="'Type your first name'"
-          @update:modelValue="firstName=$event"
         />
         <BaseInput 
-          :model-value="lastName"
+          v-model="lastName"
           :name="'last_name'"
           type="text"
           :label="'Last name'"
           :placeholder="'Type your last name'"
         />
         <BaseDatePicker
-          :model-value="dateOfBirth"
+          v-model="dateOfBirth"
           :name="'date_of_birth'"
           :label="'Date of birth'"
-          @update:modelValue="updateDateOfBirthFromChildComponent($event)"
         />
         <BaseCheckboxMulti
-          :model-value="favouriteFood"
+          v-model="favouriteFood"
           :options="favouriteFoodOptions"
           :heading="'Favourite food'"
           :name="'favourite_food'"
-          @update:modelValue="updateFavouriteFoodFromChildComponent($event)"
         />
         <BaseSelect
-          :model-value="language"
+          v-model="language"
           :options="languageOptions"
           :placeholder="'Please select a language'"
           :label="'Language'"
-          @update:modelValue="updateLanguageFromChildComponent($event)"
         />
         <BaseRadio
-          :model-value="gender"
+          v-model="gender"
           :options="genderOptions"
           :heading="'Gender'"
           :name="'gender'"
-          @update:modelValue="updateGenderFromChildComponent($event)"
         />
         <BaseButton class="xl:w-96">Save</BaseButton>
       </form>

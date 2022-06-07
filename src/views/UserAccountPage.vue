@@ -15,9 +15,6 @@ const getExistingIsAdmin = (() => {
   var a = true;
   isAdmin.value = a;
 });
-const updateIsAdminFromChildComponent = ((value) => {
-  isAdmin.value = value
-});
 
 </script>
 
@@ -26,13 +23,20 @@ const updateIsAdminFromChildComponent = ((value) => {
     <div class="user-account-page">
       <h1 class="mb-10">This is your account page</h1>
       <form>
-        <BaseInput name="username" type="email" label="Username" />
-        <BaseInput name="password" type="password" label="Password" />
+        <BaseInput
+          name="username" 
+          type="email" 
+          label="Username" 
+        />
+        <BaseInput 
+          name="password" 
+          type="password" 
+          label="Password" 
+        />
         <BaseCheckboxSingle
-          :model-value="isAdmin"
+          v-model="isAdmin"
           :heading="'Remember this setting'"
           :name="'remember_setting'"
-          @update:modelValue="updateIsAdminFromChildComponent($event)"
         />
         <BaseButton class="xl:w-96">Save</BaseButton>
       </form>
