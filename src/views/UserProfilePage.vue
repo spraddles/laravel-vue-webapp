@@ -57,6 +57,7 @@ const getFavouriteFoodOptions = (() => {
   var a = ['Thai', 'Italian', 'Mexican', 'Greek', 'Seafood', 'Steak'];
   favouriteFoodOptions.value = a;
 });
+
 // LANGUAGE
 const getExistingLanguage = (() => {
   var a = 'German';

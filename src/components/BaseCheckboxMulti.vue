@@ -20,7 +20,18 @@ const props = defineProps({
   },
 });
 
-defineEmits(['update:modelValue']);
+const emit = defineEmits(['update:modelValue']);
+
+const check = (item, checked) => {
+  let updatedValue = [...props.modelValue];
+  if (checked) {
+    updatedValue.push(item);
+  } else {
+    updatedValue.splice(updatedValue.indexOf(item), 1);
+  }
+  console.log('1')
+  emit('update:modelValue', updatedValue);
+};
 
 </script>
 
@@ -37,7 +48,7 @@ defineEmits(['update:modelValue']);
         :id="option"
         :name="props.name"
         :checked="props.modelValue.includes(option)"
-        @update:checked="$emit('update:modelValue', $event.target.value)"
+        @change="check(option, $event.target.checked)"
       />
       <label class="relative bottom-1 text-gray-700" :for="option">{{option}}</label>
     </div>
