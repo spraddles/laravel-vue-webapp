@@ -40,7 +40,6 @@ const props = defineProps({
         :placeholder="props.placeholder"
         :name="name"
         :type="type"
-        :value="props.modelValue"
         :aria-label="name"
         @input="$emit('update:modelValue', $event.target.value)"
       />

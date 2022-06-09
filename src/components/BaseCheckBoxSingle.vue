@@ -26,7 +26,7 @@ const props = defineProps({
       :id="props.name"
       :name="props.name"
       :checked="props.modelValue"
-      @change="$emit('update:modelValue', $event.target.value)"
+      @change="$emit('update:modelValue', $event.target.checked)"
     />
     <label class="relative bottom-1 text-gray-700" :for="props.name">{{props.heading}}</label>
   </div>

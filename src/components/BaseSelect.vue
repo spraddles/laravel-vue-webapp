@@ -40,7 +40,6 @@ const props = defineProps({
       >{{props.placeholder}}</option>
       <option v-for="(option, index) in options"
         :key="index"
-        :value="option"
         :selected="option === props.modelValue"
       >{{option}}</option>
     </select>
