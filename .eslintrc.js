@@ -12,6 +12,7 @@ module.exports = {
   },
   rules: {
     'object-curly-spacing': ['error', 'always'],
+    'no-console': ['warn', { allow: ['warn', 'error'] }],
     'quotes': [2, 'single', { 'avoidEscape': true }],
     'vue/max-len': [
       'error',

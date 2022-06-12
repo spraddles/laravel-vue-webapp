@@ -29,7 +29,6 @@ const check = (item, checked) => {
   } else {
     updatedValue.splice(updatedValue.indexOf(item), 1);
   }
-  console.log('1')
   emit('update:modelValue', updatedValue);
 };
 
