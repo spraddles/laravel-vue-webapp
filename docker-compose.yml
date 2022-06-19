@@ -9,13 +9,15 @@ services:
     build:
       context: .
       dockerfile: infra/docker/services/laravel/dockerfile-backend
+    entrypoint:
+      php artisan serve --host=0.0.0.0 --port=8000
     healthcheck:
       test: ["CMD-SHELL", "healthcheck"]
       interval: 5s
       timeout: 5s
       retries: 5
     volumes: 
-      - my-laravel:/laravel # bind mount
+      - ./laravel:/app # bind mount
     restart: unless-stopped
     depends_on:
       database:
