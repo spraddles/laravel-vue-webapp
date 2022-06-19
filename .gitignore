@@ -32,7 +32,7 @@ pnpm-debug.log*
 /public/hot
 /public/storage
 /storage/*.key
-/vendor
+/laravel/vendor
 .phpunit.result.cache
 Homestead.json
 Homestead.yaml

@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'a24b155c8b306500289a91f38d6000514ce479c5',
+        'reference' => '136b59159b3cf2494afbf72d6c1e350c40705e61',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
@@ -409,7 +409,16 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'a24b155c8b306500289a91f38d6000514ce479c5',
+            'reference' => '136b59159b3cf2494afbf72d6c1e350c40705e61',
+            'dev_requirement' => false,
+        ),
+        'laravel/sanctum' => array(
+            'pretty_version' => 'v2.15.1',
+            'version' => '2.15.1.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../laravel/sanctum',
+            'aliases' => array(),
+            'reference' => '31fbe6f85aee080c4dc2f9b03dc6dd5d0ee72473',
             'dev_requirement' => false,
         ),
         'laravel/serializable-closure' => array(
@@ -757,8 +766,8 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.0|2.0',
-                1 => '1.0.0 || 2.0.0 || 3.0.0',
+                0 => '1.0.0 || 2.0.0 || 3.0.0',
+                1 => '1.0|2.0',
             ),
         ),
         'psr/simple-cache' => array(
