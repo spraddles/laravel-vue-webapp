@@ -4,4 +4,5 @@ Design inspiration taken from:
 - https://dev.to/codeply/helpful-page-layouts-using-tailwind-css-1a3k
 
 Devops:
-- `docker-compose --env-file ./laravel/.env up -d`
+- Serve backend: `docker-compose --env-file ./laravel/.env up -d`
+- Serve frontend: `yarn serve`
