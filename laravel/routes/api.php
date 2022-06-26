@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,3 +15,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// authentication
+Route::prefix('auth')->group(function() {
+
+    // login
+    Route::post('/login', [AuthController::class, 'login'])->name('login');
+
+    // logout
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+    // reset password: request
+    Route::post('/password-reset', [AuthController::class, 'passwordResetEmailRequest'])->name('password.reset');
+
+    // reset password: set
+    // Route::get('/password-reset/{token}', [AuthController::class, 'passwordReset'])->name('password.reset');
+
+});
+
+Route::get('/user', function (Request $request) {
+    return 'hello you';
+});
