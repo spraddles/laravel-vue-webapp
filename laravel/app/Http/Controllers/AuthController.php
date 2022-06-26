@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 
 class AuthController extends Controller {
@@ -17,7 +20,39 @@ class AuthController extends Controller {
      * @return Response
      */
 
-    public function login(Request $request) {
+    public function login(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'email'     => 'required|email',
+            'password'  => 'required'
+        ]);
+
+        /* if ($validator->fails()) {
+            return response()->json($validator->messages()->all()[0])->withInput();
+        } */
+
+        $email = $request->email;
+        $password = $request['password'];
+
+        $user = User::where('email', $email)->first();
+    
+        if (!$user || !Hash::check($password, $user->password)) {
+            return response([
+                'message' => ['Error.']
+            ], 404);
+        }
+    
+        $token = $user->createToken('token')->plainTextToken;
+    
+        $response = [
+            'user'  => $user,
+            'token' => $token
+        ];
+    
+        return response($response, 201);
+    }
+
+    public function logina(Request $request) {
 
         $credentials = $request->validate([
             'email' => 'required|email',
@@ -34,7 +69,7 @@ class AuthController extends Controller {
             $user->tokens()->delete();
 
             // create new token
-            $user->createToken('Web')->plainTextToken;
+            $user->createToken('Web');
 
             return response()->json([
                 // login success
