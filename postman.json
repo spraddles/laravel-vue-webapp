@@ -1,0 +1,95 @@
+{
+	"info": {
+		"_postman_id": "5a3e1140-1eec-4992-8658-601fe6b479e6",
+		"name": "Laravel auth",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Homepage",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get cookie",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{base_url}}/sanctum/csrf-cookie",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"sanctum",
+						"csrf-cookie"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "XSRF-TOKEN",
+						"value": "eyJpdiI6ImtDc1JBZHBhbjI2MFVzQ1ZPWUNCMWc9PSIsInZhbHVlIjoiYzJKbXMyMHBOc2FlaklEUk5tNjdsM1preHVCRXhLM1k5OEk5a1oxUGxNYnZoMHNUd3lqMVBIZWY5K09VSmhRZ0FybGM3S3R4WlN1U1pNRU5ncmNDRWlNRkpoMVg4ZFBTeDg4WmNDdEU2TFZ0S0pLWVBBWUk0aVRQa1FyeG1naVQiLCJtYWMiOiJmNmM0MjQ4MGNlNzk5Y2RjYmU4MTIwZTgxNDkwMzYyY2Y1YjE1YmUwMWE0MzM3OWMxOTA2NDQxMmY2MzcyNTU1IiwidGFnIjoiIn0%3D",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "test@test.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "test",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/auth/login",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
