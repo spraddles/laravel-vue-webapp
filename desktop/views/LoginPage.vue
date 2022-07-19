@@ -1,7 +1,29 @@
 <script setup>
-import CenterLayout from '@/layouts/CenterLayout.vue';
-import BaseInput from '@/components/BaseInput.vue';
-import BaseButton from '@/components/BaseButton.vue';
+import { ref } from 'vue'
+import CenterLayout from '@/layouts/CenterLayout.vue'
+import BaseInput from '@/components/BaseInput.vue'
+import BaseButton from '@/components/BaseButton.vue'
+import authService from '@services/auth.service.js'
+import { useRouter } from 'vue-router'
+
+const router = useRouter();
+
+const formData = ref({
+  email: '',
+  password: ''
+})
+
+const login = async () => {
+  try {
+    await authService.login(formData.value)
+    localStorage.setItem('auth', 'true')
+    router.push('/home')
+  } catch(error) {
+    if (error.response === 401) {
+      console.warn('Authentication error')
+    }
+  }
+}
 </script>
 
 <template>
@@ -10,18 +32,20 @@ import BaseButton from '@/components/BaseButton.vue';
       <img alt="Vue logo" src="../assets/logo.png" class="pt-10 mx-auto w-24 h-full" />
       <form class="p-10">
         <BaseInput
+          v-model="formData.email"
           name="username"
           type="email"
           label="Username"
           placeholder="Enter username"
         />
         <BaseInput
+          v-model="formData.password"
           name="password"
           type="password"
           label="Password"
           placeholder="Enter password"
         />
-        <BaseButton>Log in</BaseButton>
+        <BaseButton @click.prevent="login()">Log in</BaseButton>
       </form>
     </div>
   </CenterLayout>
