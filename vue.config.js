@@ -15,6 +15,7 @@ module.exports = {
     config.resolve.alias.set('@', path.resolve(__dirname, 'desktop'))
     config.resolve.alias.set('@services', path.resolve(__dirname, 'desktop/services'))
     config.resolve.alias.set('@router', path.resolve(__dirname, 'desktop/router'))
+    config.resolve.alias.set('@store', path.resolve(__dirname, 'desktop/store'))
     config.resolve.alias.set('@components', path.resolve(__dirname, 'desktop/components'))
     config.resolve.alias.set('@layouts', path.resolve(__dirname, 'desktop/layouts'))
     config.resolve.alias.set('@pages', path.resolve(__dirname, 'desktop/views'))
