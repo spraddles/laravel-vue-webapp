@@ -5,6 +5,7 @@ const routes = [
     path: '/',
     name: 'home',
     alias: '/home',
+    meta: { requiredAuth: true },
     component: () =>
       import(/* webpackChunkName: "home" */ '../views/HomePage.vue'),
   },
@@ -18,6 +19,7 @@ const routes = [
   {
     path: '/profile',
     name: 'profile',
+    meta: { requiredAuth: true },
     // lazy-load component
     component: () =>
       import(/* webpackChunkName: "user_profile" */ '../views/UserProfilePage.vue'),
@@ -25,6 +27,7 @@ const routes = [
   {
     path: '/account',
     name: 'account',
+    meta: { requiredAuth: true },
     // lazy-load component
     component: () =>
       import(/* webpackChunkName: "user_account" */ '../views/UserAccountPage.vue'),
