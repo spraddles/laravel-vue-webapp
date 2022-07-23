@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
-import BaseLayout from '@/layouts/BaseLayout.vue';
-import BaseButton from '@/components/BaseButton.vue'
+import BaseLayout from '@layouts/BaseLayout.vue';
+import BaseButton from '@components/BaseButton.vue'
 import authService from '@services/auth.service.js'
 import { useRouter } from 'vue-router'
 

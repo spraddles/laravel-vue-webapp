@@ -1,8 +1,8 @@
 <script setup>
 import { ref } from 'vue'
-import CenterLayout from '@/layouts/CenterLayout.vue'
-import BaseInput from '@/components/BaseInput.vue'
-import BaseButton from '@/components/BaseButton.vue'
+import CenterLayout from '@layouts/CenterLayout.vue'
+import BaseInput from '@components/BaseInput.vue'
+import BaseButton from '@components/BaseButton.vue'
 import authService from '@services/auth.service.js'
 import { useRouter } from 'vue-router'
 
