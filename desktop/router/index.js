@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
   {
@@ -32,11 +32,11 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "user_account" */ '../views/UserAccountPage.vue'),
   },
-];
+]
 
 const router = createRouter({
   history: createWebHistory(),
   routes,
-});
+})
 
-export default router;
+export default router

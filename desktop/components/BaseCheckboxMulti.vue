@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps, defineEmits } from 'vue';
+import { defineProps, defineEmits } from 'vue'
 
 const props = defineProps({
   modelValue: {
@@ -18,19 +18,19 @@ const props = defineProps({
     type: Array,
     default: () =>[]
   },
-});
+})
 
-const emit = defineEmits(['update:modelValue']);
+const emit = defineEmits(['update:modelValue'])
 
 const check = (item, checked) => {
-  let updatedValue = [...props.modelValue];
+  let updatedValue = [...props.modelValue]
   if (checked) {
-    updatedValue.push(item);
+    updatedValue.push(item)
   } else {
-    updatedValue.splice(updatedValue.indexOf(item), 1);
+    updatedValue.splice(updatedValue.indexOf(item), 1)
   }
-  emit('update:modelValue', updatedValue);
-};
+  emit('update:modelValue', updatedValue)
+}
 
 </script>
 

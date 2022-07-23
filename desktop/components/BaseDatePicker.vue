@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps } from 'vue';
+import { defineProps } from 'vue'
 
 const props = defineProps({
   modelValue: {
@@ -22,11 +22,11 @@ const props = defineProps({
     type: String,
     default: '',
   },
-});
+})
 
 const changeAttribute = (() => {
-  document.getElementById('date_of_birth').setAttribute('type', 'date');
-});
+  document.getElementById('date_of_birth').setAttribute('type', 'date')
+})
 
 </script>
 

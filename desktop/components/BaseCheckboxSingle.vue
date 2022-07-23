@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps } from 'vue';
+import { defineProps } from 'vue'
 
 const props = defineProps({
   modelValue: {
@@ -14,7 +14,7 @@ const props = defineProps({
     type: String,
     default: '',
   }
-});
+})
 
 </script>
 

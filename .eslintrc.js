@@ -14,6 +14,7 @@ module.exports = {
     'object-curly-spacing': ['error', 'always'],
     'no-console': ['warn', { allow: ['warn', 'error'] }],
     'quotes': [2, 'single', { 'avoidEscape': true }],
+    'semi': ['error', 'never'],
     'vue/max-len': [
       'error',
       {
@@ -32,4 +33,4 @@ module.exports = {
     'tailwindcss/no-contradicting-classname': 'error'
   },
   plugins: ['tailwindcss']
-};
+}

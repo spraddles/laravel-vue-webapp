@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from 'axios'
 
 const baseApi = axios.create({
   baseURL: process.env.VUE_APP_LARAVEL_API_URI,
@@ -7,6 +7,6 @@ const baseApi = axios.create({
   headers: {
     'Content-Type': 'application/json'
   }
-});
+})
 
-export default baseApi;
+export default baseApi
