@@ -16,7 +16,6 @@ const formData = ref({
 const login = async () => {
   try {
     await authService.login(formData.value)
-    localStorage.setItem('auth', 'true')
     router.push('/home')
   } catch(error) {
     if (error.response === 401) {
