@@ -1,24 +1,26 @@
 import api from '@services/api/base-api.js';
-import cookie from '@services/cookie.service.js';
+import cookieService from '@services/cookie.service.js';
+import cookie from 'js-cookie';
 
 export default {
 
   async login(payload) {
-    await cookie.getCookie();
-
+    await cookieService.getCookie();
     return api.post('/api/auth/login', payload);
   },
 
-  async logout() {
-    await cookie.getCookie();
-
-    return api.post('/api/auth/logout');
+  async logout(payload) {
+    await cookieService.removeCookie();
+    return api.post('/api/auth/logout', payload);
+  },
+  
+  isLoggedIn() {
+    return cookie.get('XSRF-TOKEN')
   }
 
   /* async register(form) {
-    await Csrf.getCookie();
-
-    return Api.post('/api/auth/register', form);
+    await cookieService.getCookie();
+    return api.post('/api/auth/register', form);
   },*/
 
 };

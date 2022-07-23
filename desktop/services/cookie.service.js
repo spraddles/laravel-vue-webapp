@@ -2,15 +2,15 @@ import api from '@services/api/base-api.js';
 import cookie from 'js-cookie';
 
 export default {
-  getCookie() {
-    let token = cookie.get('XSRF-TOKEN');
 
-    if (token) {
-      return new Promise(resolve => {
-        resolve(token);
-      });
-    }
-
+  async getCookie() {
+    await cookie.get('XSRF-TOKEN');
     return api.get('/sanctum/csrf-cookie');
+  },
+
+  async removeCookie() {
+    await cookie.remove('XSRF-TOKEN');
+    await cookie.remove('laravel_session');
   }
+
 };
