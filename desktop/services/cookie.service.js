@@ -5,7 +5,7 @@ export default {
 
   async getCookie() {
     await cookie.get('XSRF-TOKEN');
-    return api.get('/sanctum/csrf-cookie');
+    await api.get('/sanctum/csrf-cookie');
   },
 
   async removeCookie() {

@@ -6,12 +6,12 @@ export default {
 
   async login(payload) {
     await cookieService.getCookie();
-    return api.post('/api/auth/login', payload);
+    await api.post('/api/auth/login', payload);
   },
 
   async logout(payload) {
     await cookieService.removeCookie();
-    return api.post('/api/auth/logout', payload);
+    await api.post('/api/auth/logout', payload);
   },
   
   isLoggedIn() {
