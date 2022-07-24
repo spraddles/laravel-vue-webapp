@@ -12,6 +12,7 @@
     "core-js": "^3.8.3",
     "js-cookie": "^3.0.1",
     "pinia": "^2.0.16",
+    "pinia-plugin-persistedstate": "^1.6.3",
     "vue": "3.2.26",
     "vue-router": "^4.0.3"
   },
