@@ -5,8 +5,10 @@ import BaseInput from '@components/BaseInput.vue'
 import BaseButton from '@components/BaseButton.vue'
 import authService from '@services/auth.service.js'
 import { useRouter } from 'vue-router'
+import { userStore } from '@/store/store.js'
 
 const router = useRouter()
+const user = userStore()
 
 const formData = ref({
   email: '',
@@ -17,6 +19,7 @@ const login = async () => {
   try {
     await authService.login(formData.value)
     router.push('/home')
+    user.$patch({ email: formData.value.email })
   } catch(error) {
     if (error.response === 401) {
       console.warn('Authentication error')

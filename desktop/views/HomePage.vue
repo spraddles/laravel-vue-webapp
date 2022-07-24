@@ -4,12 +4,15 @@ import BaseLayout from '@layouts/BaseLayout.vue'
 import BaseButton from '@components/BaseButton.vue'
 import authService from '@services/auth.service.js'
 import { useRouter } from 'vue-router'
+import { userStore } from '@/store/store.js'
 
 const router = useRouter()
-const formData = ref({ email: 'test@test.com' })
+const user = userStore()
 
-const logout = async (formData) => {
-  await authService.logout(formData)
+const formData = ref({ email: user.email })
+
+const logout = async () => {
+  await authService.logout(formData.value)
   router.push('/login')
 }
 </script>
@@ -18,7 +21,7 @@ const logout = async (formData) => {
   <BaseLayout>
     <div class="home-page">
       <h1>Welome to the Home Page</h1>
-      <BaseButton @click.prevent="logout(formData)">Log out</BaseButton>
+      <BaseButton @click.prevent="logout()">Log out</BaseButton>
     </div>
   </BaseLayout>
 </template>

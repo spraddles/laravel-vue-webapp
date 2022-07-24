@@ -1,6 +1,7 @@
 import api from '@services/api/base-api.js'
 import cookieService from '@services/cookie.service.js'
 import cookie from 'js-cookie'
+import { userStore } from '@/store/store.js'
 
 export default {
 
@@ -11,6 +12,7 @@ export default {
 
   async logout(payload) {
     await cookieService.removeCookie()
+    userStore().$patch({ email: '' })
     await api.post('/api/auth/logout', payload)
   },
   
