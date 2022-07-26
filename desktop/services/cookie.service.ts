@@ -1,4 +1,4 @@
-import api from '@services/api/base-api.js'
+import { api } from '@/services/api'
 import cookie from 'js-cookie'
 
 export default {

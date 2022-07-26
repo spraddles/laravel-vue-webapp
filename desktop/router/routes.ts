@@ -1,5 +1,3 @@
-import { createRouter, createWebHistory } from 'vue-router'
-
 const routes = [
   {
     path: '/',
@@ -7,7 +5,7 @@ const routes = [
     alias: '/home',
     meta: { requiredAuth: true },
     component: () =>
-      import(/* webpackChunkName: "home" */ '../views/HomePage.vue'),
+      import(/* webpackChunkName: "home" */ '@/views/HomePage.vue'),
   },
   {
     path: '/login',
@@ -34,9 +32,4 @@ const routes = [
   },
 ]
 
-const router = createRouter({
-  history: createWebHistory(),
-  routes,
-})
-
-export default router
+export default routes

@@ -1,0 +1,52 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "CommonJS",
+    "strict": true,
+    "jsx": "preserve",
+    "importHelpers": true,
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "baseUrl": "./",
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": false,
+    "strictNullChecks": false,
+    "noImplicitAny" : false,
+    "types": [
+      "webpack",
+      "node"
+    ],
+    "paths": {
+      "@/*": ["desktop/*"],
+      "@/views/*": ["desktop/views/*"],
+      "@/components/*": ["desktop/components/*"],
+      "@/layouts/*": ["desktop/layouts/*"],
+      "@/services/*": ["desktop/services/*"],
+      "@/router/*": ["desktop/router/*"],
+      "@/store/*": ["desktop/store/*"]
+    },
+    "lib": [
+      "ES2015",
+      "ES2017",
+      "ES2019",
+      "esnext",
+      "dom",
+      "dom.iterable",
+      "scripthost"
+    ],
+    "plugins": [{}],
+    "resolveJsonModule": true,
+  },
+  "include": [
+    "@types/**/*.ts",
+    "desktop/**/*.ts",
+    "desktop/**/*.vue"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

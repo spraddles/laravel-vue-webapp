@@ -1,7 +1,7 @@
-import api from '@services/api/base-api.js'
-import cookieService from '@services/cookie.service.js'
+import { api } from '@/services/api'
+import { cookieService } from '@/services'
 import cookie from 'js-cookie'
-import { userStore } from '@/store/store.js'
+import { userStore } from '@/store'
 
 export default {
 

@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const baseApi = axios.create({
+const api = axios.create({
   baseURL: process.env.VUE_APP_LARAVEL_API_URI,
   withCredentials: true,
   timeout: 15000,
@@ -9,4 +9,4 @@ const baseApi = axios.create({
   }
 })
 
-export default baseApi
+export default api

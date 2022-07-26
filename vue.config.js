@@ -8,7 +8,7 @@ module.exports = {
   configureWebpack: {
     plugins: [],
     entry: {
-      app: './desktop/main.js',
+      app: './desktop/main.ts',
     },
   },
   chainWebpack: (config) => {

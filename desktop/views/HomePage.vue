@@ -1,10 +1,10 @@
 <script setup>
 import { ref } from 'vue'
-import BaseLayout from '@layouts/BaseLayout.vue'
-import BaseButton from '@components/BaseButton.vue'
-import authService from '@services/auth.service.js'
+import BaseLayout from '@/layouts/BaseLayout.vue'
+import BaseButton from '@/components/BaseButton.vue'
+import { authService } from '@/services'
 import { useRouter } from 'vue-router'
-import { userStore } from '@/store/store.js'
+import { userStore } from '@/store'
 
 const router = useRouter()
 const user = userStore()

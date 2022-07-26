@@ -1,12 +1,12 @@
 <script setup>
 import { onMounted, ref } from 'vue'
-import BaseLayout from '@layouts/BaseLayout.vue'
-import BaseInput from '@components/BaseInput.vue'
-import BaseButton from '@components/BaseButton.vue'
-import BaseSelect from '@components/BaseSelect.vue'
-import BaseRadio from '@components/BaseRadio.vue'
-import BaseCheckboxMulti from '@components/BaseCheckboxMulti.vue'
-import BaseDatePicker from '@components/BaseDatePicker.vue'
+import BaseLayout from '@/layouts/BaseLayout.vue'
+import BaseInput from '@/components/BaseInput.vue'
+import BaseButton from '@/components/BaseButton.vue'
+import BaseSelect from '@/components/BaseSelect.vue'
+import BaseRadio from '@/components/BaseRadio.vue'
+import BaseCheckboxMulti from '@/components/BaseCheckboxMulti.vue'
+import BaseDatePicker from '@/components/BaseDatePicker.vue'
 
 const firstName = ref('')
 const lastName = ref('')
