@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue'
 import CenterLayout from '@/layouts/CenterLayout.vue'
 import BaseInput from '@/components/BaseInput.vue'

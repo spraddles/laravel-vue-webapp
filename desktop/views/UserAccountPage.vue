@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import BaseLayout from '@/layouts/BaseLayout.vue'
 import BaseInput from '@/components/BaseInput.vue'
