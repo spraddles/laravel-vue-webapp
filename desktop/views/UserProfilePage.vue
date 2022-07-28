@@ -8,14 +8,17 @@ import BaseRadio from '@/components/BaseRadio.vue'
 import BaseCheckboxMulti from '@/components/BaseCheckboxMulti.vue'
 import BaseDatePicker from '@/components/BaseDatePicker.vue'
 
-const firstName = ref('')
-const lastName = ref('')
-const dateOfBirth = ref('')
+const form = {
+  firstName: ref(''),
+  lastName: ref(''),
+  dateOfBirth: ref(''),
+  language: ref(''),
+  gender: ref(''),
+}
+
 const favouriteFood = ref([])
 const favouriteFoodOptions = ref([])
-const language = ref('')
 const languageOptions = ref([])
-const gender = ref('')
 const genderOptions = ref([])
 
 onMounted(() => {
@@ -33,19 +36,19 @@ onMounted(() => {
 // FIRST NAME
 const getExistingFirstName = (() => {
   var a = 'John'
-  firstName.value = a
+  form.firstName.value = a
 })
 
 // LAST NAME
 const getExistingLastName = (() => {
   var a = 'Smith'
-  lastName.value = a
+  form.lastName.value = a
 })
 
 // DATE OF BIRTH
 const getExistingDateOfBirth = (() => {
   var a = '01/01/1993'
-  dateOfBirth.value = a
+  form.dateOfBirth.value = a
 })
 
 // FAVOURITE FOOD
@@ -61,7 +64,7 @@ const getFavouriteFoodOptions = (() => {
 // LANGUAGE
 const getExistingLanguage = (() => {
   var a = 'German'
-  language.value = a
+  form.language.value = a
 })
 const getLanguageOptions = (() => {
   var a = ['English', 'German', 'Spanish', 'Russian', 'Portuguese', 'French']
@@ -71,7 +74,7 @@ const getLanguageOptions = (() => {
 // GENDER
 const getExistingGender = (() => {
   var a = 'Female'
-  gender.value = a
+  form.gender.value = a
 })
 const getGenderOptions = (() => {
   var a = ['Male', 'Female', 'Other']
@@ -86,21 +89,21 @@ const getGenderOptions = (() => {
       <h1 class="mb-10">This is your profile page</h1>
       <form>
         <BaseInput 
-          v-model="firstName"
+          v-model="form.firstName"
           :name="'first_name'"
           type="text"
           :label="'First name'"
           :placeholder="'Type your first name'"
         />
         <BaseInput 
-          v-model="lastName"
+          v-model="form.lastName"
           :name="'last_name'"
           type="text"
           :label="'Last name'"
           :placeholder="'Type your last name'"
         />
         <BaseDatePicker
-          v-model="dateOfBirth"
+          v-model="form.dateOfBirth"
           :name="'date_of_birth'"
           :label="'Date of birth'"
         />
@@ -111,13 +114,13 @@ const getGenderOptions = (() => {
           :name="'favourite_food'"
         />
         <BaseSelect
-          v-model="language"
+          v-model="form.language"
           :options="languageOptions"
           :placeholder="'Please select a language'"
           :label="'Language'"
         />
         <BaseRadio
-          v-model="gender"
+          v-model="form.gender"
           :options="genderOptions"
           :heading="'Gender'"
           :name="'gender'"
