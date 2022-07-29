@@ -5,7 +5,7 @@ services:
   laravel:
     container_name: my_laravel
     ports:
-      - "${APP_PORT}:8000"
+      - "8000:8000"
     build:
       context: .
       dockerfile: infra/docker/services/laravel/dockerfile-backend
@@ -29,16 +29,16 @@ services:
     volumes:
       - postgres-data:/var/lib/postgresql/data
     ports:
-      - "${DB_PORT}:5432"
+      - "5432:5432"
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 5s
       timeout: 5s
       retries: 5
     environment:
-      POSTGRES_DB: "${DB_DATABASE}"
-      POSTGRES_USER: "${DB_USERNAME}"
-      POSTGRES_PASSWORD: "${DB_PASSWORD}"
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
       #POSTGRES_HOST_AUTH_METHOD: "trust"
     restart: unless-stopped
 
@@ -47,7 +47,9 @@ services:
     image: 
       'mailhog/mailhog'
     ports:
-      - "${MAILHOG_PORT}:8025"
+      - "8026:8025"
+    environment:
+      MAILHOG_PORT: postgres
     restart: on-failure
 
 volumes:

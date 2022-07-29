@@ -10,5 +10,5 @@ Issues:
 Devops:
 - Serve backend: `docker-compose --env-file ./laravel/.env up -d`
 - Serve frontend: `yarn serve`
-- Run migrations: `php artisan migrate fresh`
-- Run seeders: `php artisan db:seed`
+- Run migrations: `docker compose exec laravel sh && php artisan migrate fresh`
+- Run seeders: `docker compose exec laravel sh && php artisan db:seed`
