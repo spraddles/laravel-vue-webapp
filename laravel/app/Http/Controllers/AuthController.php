@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Password;
+use App\Http\Resources\UserResource;
 use App\Models\User;
 
 class AuthController extends Controller {
@@ -35,13 +36,11 @@ class AuthController extends Controller {
             $user->tokens()->delete();
 
             // create new token
-            $token = $user->createToken('token')->plainTextToken;
+            $user->createToken('token')->plainTextToken;
 
             // login success
-            return response()->json([
-                'message' => 'Login success',
-                'token' => $token
-            ], 202);
+            return new UserResource($user);
+
         }
         else {
             // login fail
