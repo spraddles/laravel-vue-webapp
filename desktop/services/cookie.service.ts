@@ -4,13 +4,20 @@ import cookie from 'js-cookie'
 export default {
 
   async getCookie() {
-    await cookie.get('XSRF-TOKEN')
-    await api.get('/sanctum/csrf-cookie')
+    try {
+      await cookie.get('XSRF-TOKEN')
+      await api.get('/sanctum/csrf-cookie')
+    } catch(e) {
+      console.warn(e)
+    }
   },
 
   async removeCookie() {
-    await cookie.remove('XSRF-TOKEN')
-    await cookie.remove('laravel_session')
+    try {
+      await cookie.remove('XSRF-TOKEN')
+      await cookie.remove('laravel_session')
+    } catch(e) {
+      console.warn(e)
+    }
   }
-
 }

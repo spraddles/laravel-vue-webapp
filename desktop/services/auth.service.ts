@@ -6,18 +6,30 @@ import { userStore } from '@/store'
 export default {
 
   async login(payload) {
-    await cookieService.getCookie()
-    await api.post('/api/auth/login', payload)
+    try {
+      await cookieService.getCookie()
+      await api.post('/api/auth/login', payload)
+    } catch(e) {
+      console.warn(e)
+    }
   },
 
   async logout(payload) {
-    await cookieService.removeCookie()
-    userStore().$patch({ email: '' })
-    await api.post('/api/auth/logout', payload)
+    try {
+      await cookieService.removeCookie()
+      userStore().$patch({ email: '' })
+      await api.post('/api/auth/logout', payload)
+    } catch(e) {
+      console.warn(e)
+    }
   },
   
   isLoggedIn() {
-    return cookie.get('XSRF-TOKEN')
+    try {
+      return cookie.get('XSRF-TOKEN')
+    } catch(e) {
+      console.warn(e)
+    }
   }
 
   /* async register(form) {
