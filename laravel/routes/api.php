@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,5 +29,13 @@ Route::prefix('auth')->group(function() {
 
     // reset password: set
     // Route::get('/password-reset/{token}', [AuthController::class, 'passwordReset'])->name('password.reset');
+
+});
+
+// user
+Route::prefix('user')->group(function() {
+
+    // profile
+    Route::post('/me', [UserController::class, 'get'])->name('get');
 
 });
