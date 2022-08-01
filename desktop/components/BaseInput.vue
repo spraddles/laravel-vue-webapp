@@ -32,6 +32,7 @@ const props = defineProps({
   <div class="flex">
     <div class="xl:w-96">
       <input
+        :value="modelValue"
         class="block py-1.5 px-3 m-0 mb-8 w-full 
         text-base font-normal text-gray-700 focus:text-gray-700 
         bg-clip-padding bg-white 
