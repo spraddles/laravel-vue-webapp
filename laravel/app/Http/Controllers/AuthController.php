@@ -36,6 +36,11 @@ class AuthController extends Controller {
 
             // create new token
             $user->createToken('token')->plainTextToken;
+
+            // login success
+            return response()->json([
+                'message' => 'Login success',
+            ], 202);
         }
         else {
             // login fail
