@@ -1,5 +1,5 @@
 import cookieService from './cookie.service'
 import authService from './auth.service'
-import meService from './me.service'
+import userService from './user.service'
 
-export { cookieService, authService, meService }
+export { cookieService, authService, userService }
