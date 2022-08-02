@@ -108,7 +108,11 @@ const saveUserDetails = async () => {
           :heading="'Gender'"
           :name="'gender'"
         />
-        <BaseButton class="xl:w-96" @click.prevent="saveUserDetails()">Save</BaseButton>
+        <BaseButton 
+          :fullWidth="true"
+          class="xl:w-96" 
+          @click.prevent="saveUserDetails()"
+        >Save</BaseButton>
       </form>
     </div>
   </BaseLayout>
