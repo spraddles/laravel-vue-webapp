@@ -1,8 +1,23 @@
 <script setup lang="ts">
+import { ref } from 'vue'
+import BaseButton from '@/components/BaseButton.vue'
+import { authService } from '@/services'
+import { useRouter } from 'vue-router'
+import { userStore } from '@/store'
+
+const router = useRouter()
+const user = userStore()
+const formData = ref({ email: user.email })
+
+const logout = async () => {
+  await authService.logout(formData.value)
+  router.push('/login')
+}
+
 </script>
 
 <template>
-<div class="overflow-x-hidden relative -mx-4 -mt-4 -mb-8 h-96 min-h-full">
+<div class="overflow-x-hidden relative h-52">
     <div class="absolute px-1 w-60 h-full shadow-md">
       <ul class="relative">
         <li class="relative">
@@ -40,4 +55,8 @@
       </ul>
     </div>
   </div>
+  <BaseButton
+    :fullWidth="false"
+    @click.prevent="logout()"
+  >Log out</BaseButton>
 </template>

@@ -47,7 +47,10 @@ const login = async () => {
           label="Password"
           placeholder="Enter password"
         />
-        <BaseButton @click.prevent="login()">Log in</BaseButton>
+        <BaseButton
+          :fullWidth="true"
+          @click.prevent="login()"
+        >Log in</BaseButton>
       </form>
     </div>
   </CenterLayout>
